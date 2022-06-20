@@ -9,20 +9,37 @@
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                          {!! link_to_route('signup.get','新規登録',[],['class'=>'nav-link','style'=>'font-size:11px']) !!}
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#" style="font-size:10px;">ログイン</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#" style="font-size:10px;">マイページ</a>
-                        </li>
-                        
-                      </ul>
-                    </div>
+                    {{-- ログイン中の表示 --}}
+                    @if (Auth::check())
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                          <li class="nav-item" style="font-size:10px;">
+                            新規登録
+                          </li>
+                          <li class="nav-item">
+                            {!! link_to_route('logout.get','ログアウト') !!}
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#" style="font-size:10px;">{{ Auth::user()->name }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    {{-- ログアウト中の表示 --}}
+                    @else
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                            {!! link_to_route('signup.get','新規登録',[],['class'=>'nav-link','style'=>'font-size:11px']) !!}
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#" style="font-size:10px;">ログイン</a>
+                          </li>
+                          <li class="nav-item"　style="font-size:10px;">
+                            マイページ
+                          </li>
+                        </ul>
+                      </div>
+                    @endif  
                   </nav>
             </div>
         </div>
