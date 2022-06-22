@@ -14,7 +14,7 @@
             
             <div class="form-group">
                 {!! Form::label('email','メールアドレス') !!}
-                {!! Form::email('email',null,['class'=>'from-control']) !!}
+                {!! Form::email('email',null,['class'=>'form-control']) !!}
             </div>
             
             <div class="form-group">
@@ -27,7 +27,7 @@
                 {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
             </div>
             
-            {!! Form::submit('登録',['class','btn btn-dark btn-block']) !!}
+            {!! Form::submit('登録',['class'=>'btn btn-dark btn-block']) !!}
          {!! Form::close() !!}
      </div>
  </div>

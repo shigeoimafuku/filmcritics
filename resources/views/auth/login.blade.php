@@ -12,19 +12,19 @@
          {!! Form::open(['route'=>'login.post']) !!}
             <div class="form-group">
                 {!! Form::label('email','メールアドレス') !!}
-                {!! Form::email('email',null,['class'=>'form-controll']) !!}
+                {!! Form::email('email',null,['class'=>'form-control']) !!}
             </div>
             
             <div class="form-group">
                 {!! Form::label('password','パスワード') !!}
-                {!! Form::password('password',['class'=>'form-controll']) !!}
+                {!! Form::password('password',['class'=>'form-control']) !!}
                 
             </div>
             
             {!! Form::submit('ログイン',['class'=>'btn btn-dark btn-block']) !!}
         {!! Form::close() !!} 
         
-        // ユーザ登録ページへのリンク
+       {{-- ユーザ登録ページへのリンク --}}
         <p class="mt-2">ユーザ登録がまだの方は {!! link_to_route('signup.get','こちら') !!}</p>
      </div>
  </div>
