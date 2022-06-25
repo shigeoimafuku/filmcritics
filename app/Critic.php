@@ -10,6 +10,7 @@ class Critic extends Model
         'title','theme','shoot',
         'edit','art','act',
         'screenplay','casting','music',
+        'film_id',
     ];
     
     public function user()

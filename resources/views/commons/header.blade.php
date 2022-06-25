@@ -46,7 +46,7 @@
               <div class="navbar-nav">
                 {!! link_to_route('users.index','評論家一覧',[],['class'=>'nav-item nav-link','style'=>'font-size:small']) !!}
                 <a class="nav-item nav-link" href="#" style="font-size:small">評論文一覧</a>
-                <a class="nav-item nav-link" href="#" style="font-size:small">評論する映画を選ぶ</a>
+                {!! link_to_route('films.index','評論する映画を選ぶ',[],['class'=>'nav-item nav-link','style'=>'font-size:small']) !!}
               </div>
             </div>
         </nav>

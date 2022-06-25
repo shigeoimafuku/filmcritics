@@ -26,3 +26,14 @@ Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 
 // ユーザ一覧表示
 Route::resource('users','UsersController',['only'=>['index','show']]);
+
+// 管理画面
+Route::resource('films','FilmsController');
+
+// 批評画面
+Route::group(['middleware' => ['auth']], function () {
+    
+    //Route::get('critics/{filmid}/create', 'CriticsController@create')->name('critics.create');
+    Route::resource('critics','CriticsController');
+    
+});    
