@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Critic::class);
     }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadcount('critics');
+    }
 }

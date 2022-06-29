@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Critic;
 use App\Film;
+use App\User;
 
 class CriticsController extends Controller
 {
@@ -53,6 +54,25 @@ class CriticsController extends Controller
         
         
     }
+    
+    public function index(Request $request)
+    {
+        $data=[];
+        $id=$request->userid;
+        $user=User::findOrFail($id);
+        $critics=$user->critics()->orderBy('created_at', 'desc')->paginate(10);
+        
+       
+        $data=[
+                'user'=>$user,
+                'critics'=>$critics,
+                
+        ];
+        
+       
+        
+        return view('critics.index',$data);
+        }
 }
 
 
