@@ -1,6 +1,7 @@
+<div class="pl-3 mb-5 border-bottom border-dark">映画評論一覧</div>
 @if(count($critics)>0)
    
-    <div class="pl-3 mb-5 border-bottom border-dark">映画評論一覧</div>    
+        
        
         <table class="table">
             <thead class="thead-dark">
