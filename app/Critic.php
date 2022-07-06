@@ -22,4 +22,19 @@ class Critic extends Model
     {
         return $this->belongsTo(Film::class);
     }
+    
+    static public function alreadyCriticized($user_id,$film_id)
+    {
+        return self::where('user_id',$user_id)
+                    ->where('film_id',$film_id)
+                    ->count()>0;
+    }
+    
+    static public function serchCritic($user_id,$film_id)
+    {
+        return self::where('user_id',$user_id)
+                    ->where('film_id',$film_id)
+                    ->first();
+    }
+    
 }

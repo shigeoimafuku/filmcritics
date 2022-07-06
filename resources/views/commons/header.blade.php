@@ -17,7 +17,7 @@
                             {!! link_to_route('logout.get','ログアウト',[],['class'=>'nav-link','style'=>'font-size:12px']) !!}
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#" style="font-size:12px;">{{ Auth::user()->name }}</a>
+                            {!! link_to_route('critics.mypage',Auth::user()->name,['userid'=>Auth::user()->id],['class'=>'nav-link','style'=>'font-size:12px']) !!}
                           </li>
                         </ul>
                       </div>
@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 {!! link_to_route('users.index','評論家一覧',[],['class'=>'nav-item nav-link','style'=>'font-size:small']) !!}
-                <a class="nav-item nav-link" href="#" style="font-size:small">評論文一覧</a>
+                {!! link_to_route('critics.index','評論文一覧',[],['class'=>'nav-item nav-link','style'=>'font-size:small']) !!}
                 {!! link_to_route('films.index','評論する映画を選ぶ',[],['class'=>'nav-item nav-link','style'=>'font-size:small']) !!}
               </div>
             </div>

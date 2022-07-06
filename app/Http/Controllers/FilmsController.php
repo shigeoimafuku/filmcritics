@@ -17,13 +17,11 @@ class FilmsController extends Controller
     public function index()
     {
         $films = Film::all();
-        $user=\Auth::user();
-        $critics=$user->critics()->get();
+        
         
         return view('films.index',[
             'films' => $films,
-            'user' => $user,
-            'critics' => $critics,
+            
         ]);
     }
 

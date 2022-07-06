@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<div class="pl-3 mb-5 border-bottom border-dark">評論できる映画一覧</div>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -12,28 +12,36 @@
     </tr>
   </thead>
   
-  @foreach ( $films as $film )
-  
- {!! Form::open(['route'=>['critics.create'],'method'=>'get']) !!}
+
+  @if (Auth::check())
   <tbody>
     <tr>
-      <th scope="row">{{ $film->id }}</th>
-      <td>{{ $film->title }}</td>
-      
-     
-      {!! Form::hidden('filmid',$film->id) !!}　　　　　　　　
+      @foreach ( $films as $film )
        
-      <td>{!! Form::submit('評論を書く',['class'=>'btn btn-dark']) !!}</td>
+        <th scope="row">{{ $film->id }}</th>
+        <td>{{ $film->title }}</td>
       
+       @if (App\Critic::alreadyCriticized(Auth::user()->id,$film->id))
+    
+        <td>{!! link_to_route('critics.show','評論済み',['critic'=>App\Critic::serchCritic(Auth::user()->id,$film->id)->id],['class'=>'btn btn-dark']) !!}</td>
+       @else
+        <td>{!! link_to_route('critics.create','評論を書く',['filmid'=>$film->id],['class'=>'btn btn-dark']) !!}</td>
+       @endif
       
     </tr>
   </tbody>
-  {!! Form::close() !!}
-  @endforeach
-  
-
-  
+      @endforeach
+  @else
+  <tbody>
+    <tr>
+       @foreach ( $films as $film )
+       <th scope="row">{{ $film->id }}</th>
+      <td>{{ $film->title }}</td>
+      <td>{!! link_to_route('critics.create','評論を書く',['filmid'=>$film->id],['class'=>'btn btn-dark']) !!}</td>
+    </tr>
+  </tbody>
+      @endforeach
+ @endif
 </table>
-
 
 @endsection

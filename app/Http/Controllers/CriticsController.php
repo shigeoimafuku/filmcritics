@@ -55,7 +55,7 @@ class CriticsController extends Controller
         
     }
     
-    public function index(Request $request)
+    public function mypage(Request $request)
     {
         $data=[];
         $id=$request->userid;
@@ -66,13 +66,77 @@ class CriticsController extends Controller
         $data=[
                 'user'=>$user,
                 'critics'=>$critics,
-                
+                'request'=>$request,
         ];
         
        
         
-        return view('critics.index',$data);
+        return view('critics.mypage',$data);
         }
+    
+    public function show($id)
+    {
+        $critic = Critic::findOrFail($id);
+        
+        
+        return view('critics.show',[
+           'critic' => $critic, 
+           
+        ]);
+    }
+    
+    public function index()
+    {
+        $critics=Critic::all();
+        
+        
+        return view('critics.index',[
+            'critics'=>$critics,
+        ]);
+    }
+    
+    public function edit($id)
+    {
+        $critic = Critic::findOrFail($id);
+        $film = $critic->film($critic->film_id)->first();
+        
+        return view('critics.edit',[
+            'critic'=>$critic,
+            'film' => $film,
+        ]);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $critic = Critic::findOrFail($id);
+        $request->validate([
+            'edit'=>'required',
+            'shoot'=>'required',
+            'screenplay'=>'required',
+            'act'=>'required',
+            'art'=>'required',
+            'music'=>'required',
+            'theme'=>'required',
+            'casting'=>'required',
+            'title'=>'required|max:255',
+        ]);
+        
+        $critic->update([
+            'edit'=>$request->edit,
+            'shoot'=>$request->shoot,
+            'screenplay'=>$request->screenplay,
+            'act'=>$request->act,
+            'art'=>$request->art,
+            'music'=>$request->music,
+            'theme'=>$request->theme,
+            'casting'=>$request->casting,
+            'title'=>$request->title,
+            'film_id'=>$request->filmid,
+        ]);
+        
+        return redirect('/');
+        
+    }
 }
 
 

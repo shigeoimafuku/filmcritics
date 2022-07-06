@@ -14,4 +14,6 @@ class Film extends Model
     {
         return $this->hasMany(Critic::class);
     }
+    
+  
 }

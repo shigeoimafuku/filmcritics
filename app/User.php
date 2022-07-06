@@ -46,4 +46,11 @@ class User extends Authenticatable
     {
         $this->loadcount('critics');
     }
+    
+    public function films()
+    {
+         return $this->hasMany(Film::class);
+    }
+    
+    
 }
