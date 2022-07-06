@@ -34,10 +34,11 @@ Route::get('critics/{userid}/mypage','CriticsController@mypage')->name('critics.
 Route::resource('films','FilmsController');
 
 // 批評画面
+Route::resource('critics','CriticsController',['except' => ['create']]);
 Route::group(['middleware' => ['auth']], function () {
     
     
-    Route::resource('critics','CriticsController',['except' => ['create']]);
+    
     Route::get('critics/{filmid}/create', 'CriticsController@create')->name('critics.create');
     
 });    
