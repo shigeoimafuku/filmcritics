@@ -29,7 +29,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::MYPAGE;
+    public function redirectTo(){
+        
+        return '/critics/'.\Auth::id().'/mypage';
+    }
 
     /**
      * Create a new controller instance.

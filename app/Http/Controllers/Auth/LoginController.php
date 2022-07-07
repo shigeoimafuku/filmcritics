@@ -20,14 +20,16 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
+    
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::MYPAGE;
-
+    public function redirectTo(){
+        
+        return '/critics/'.\Auth::id().'/mypage';
+    }
     /**
      * Create a new controller instance.
      *

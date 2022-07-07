@@ -33,6 +33,11 @@
           <div class="mt-3">
             {!! link_to_route('critics.edit','この評論を編集',['critic'=>$critic->id],['class'=>'btn btn-dark']) !!} 
           </div>
+          <div class="mt-5">
+            {!! Form::open(['route'=>['critics.destroy',$critic->id],'method'=>'delete']) !!}
+                  {!! Form::submit('この評論を削除',['class'=>'btn btn-danger btn-sm']) !!}
+            {!! Form::close() !!}
+          </div>  
         @endif
  
   @endif

@@ -49,7 +49,7 @@ class CriticsController extends Controller
             'film_id'=>$request->filmid,
         ]);
         
-        return redirect('/');
+        return redirect('/critics/'.\Auth::id().'/mypage');
         
         
         
@@ -140,9 +140,19 @@ class CriticsController extends Controller
             'film_id'=>$request->filmid,
         ]);
         
-        return redirect('/');
+        return redirect('/critics/'.\Auth::id().'/mypage');
         
     }
+    
+    public function destroy($id){
+        
+        $critic=Critic::findOrFail($id);
+        
+        if (\Auth::id()===$critic->user_id){
+            $critic->delete();
+        }
+         return redirect('/critics/'.$critic->user_id.'/mypage');
+    }     
 }
 
 
