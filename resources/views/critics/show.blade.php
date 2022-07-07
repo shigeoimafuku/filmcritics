@@ -1,27 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <h2 class="border border-dark rounded p-2 mb-5" style="font-size:20px;">{!! link_to_route('critics.mypage',$critic -> user($critic -> user_id)->first()->name,['userid'=>$critic -> user($critic -> user_id)->first()->id]) !!}さんのページ</h2>
+  @if (Auth::check())
+  <h2 class="border border-dark rounded p-2 mb-5" style="font-size:20px;">{!! link_to_route('critics.mypage',$critic -> user($critic -> user_id)->first()->name,['userid'=>$critic -> user($critic -> user_id)->first()->id]) !!}さんのページ</h2>
    <div class="pl-3 mb-5 border-bottom border-dark">「{{ $critic->film($critic->film_id)->first()->title }}」の評論</div>
-        {{-- <ul class="nav nav-tabs mt-5">
-          <li class="nav-item">
-            <a href="{{ route('critics.show',['critic'=>$critic->id]) }}" class="nav-link {{ Request::routeIs('critics.show') ? 'active' : '' }}">
-                タイトル
-            </a>    
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('critics.show',['critic'=>$critic->id]) }}" class="nav-link {{ Request::routeIs('critics.show') ? 'active' : '' }}">
-                
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul> --}}
+        
         <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="font-size:12px">タイトル</a>
@@ -51,4 +34,6 @@
             {!! link_to_route('critics.edit','この評論を編集',['critic'=>$critic->id],['class'=>'btn btn-dark']) !!} 
           </div>
         @endif
+ 
+  @endif
 @endsection    

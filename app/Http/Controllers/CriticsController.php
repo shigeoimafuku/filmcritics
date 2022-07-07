@@ -98,12 +98,18 @@ class CriticsController extends Controller
     public function edit($id)
     {
         $critic = Critic::findOrFail($id);
-        $film = $critic->film($critic->film_id)->first();
+        if (\Auth::id()===$critic->user_id){
+                $film = $critic->film($critic->film_id)->first();
+                
+                return view('critics.edit',[
+                    'critic'=>$critic,
+                    'film' => $film,
+                ]);
+        }
         
-        return view('critics.edit',[
-            'critic'=>$critic,
-            'film' => $film,
-        ]);
+        else{
+            return redirect('/');
+        }
     }
     
     public function update(Request $request, $id)
