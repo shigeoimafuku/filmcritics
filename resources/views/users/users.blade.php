@@ -2,7 +2,7 @@
 @if(count($users)>0)
   @foreach($users as $user)
     
-        <div class="card" style="width: 12rem; display:inline-block;">
+        <div class="card" style="width: 12rem; height: 10rem; display:inline-block;">
           <div class="card-body">
           {{--  {!! Form::open(['route'=>'critics.mypage','method'=>'get']) !!}
             {!! Form::hidden('userid',$user->id) !!}
@@ -10,7 +10,7 @@
             {!! link_to_route('critics.mypage',$user->name,['userid'=>$user->id],['class'=>'btn btn-link']) !!}
             <?php $user->loadRelationshipCounts(); ?>
             <h6 class="card-subtitle mb-2 mt-2 text-muted" style="font-size:12px">評論投稿数　{{ $user->critics_count }}</h6>
-            <span style="font-size:12px">{{ $user->critics()->orderBy('created_at','desc')->value('created_at') }}</span>
+            <span style="font-size:12px">{{ $user->critics()->orderBy('updated_at','desc')->value('updated_at') }}.</span>
           </div>
         </div>
             {!! Form::close() !!}

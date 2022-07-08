@@ -34,7 +34,8 @@ class CriticsController extends Controller
             'theme'=>'required',
             'casting'=>'required',
             'title'=>'required|max:255',
-        ]);
+       
+            ]);
         
         $request->user()->critics()->create([
             'edit'=>$request->edit,

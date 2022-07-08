@@ -55,7 +55,9 @@
                   {!! Form::submit('送信',['class'=>'btn btn-dark']) !!}
                   
             {!! Form::close() !!}
-            {!! Form::open(['route'=>['critics.destroy',$critic->id],'method'=>'delete']) !!}
-                  {!! Form::submit('この評論を削除',['class'=>'btn btn-danger btn-sm　mt-5']) !!}
-            {!! Form::close() !!}
+            <div class="mt-5"></div>
+                {!! Form::open(['route'=>['critics.destroy',$critic->id],'method'=>'delete']) !!}
+                      {!! Form::submit('この評論を削除',['class'=>'btn btn-danger btn-sm']) !!}
+                {!! Form::close() !!}
+            </div>
 @endsection
