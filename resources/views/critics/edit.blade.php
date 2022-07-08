@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (count($errors) > 0)
+        <ul class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+                <li class="ml-4">{{ $error }}</li>
+            @endforeach
+        </ul>
+@endif
 <h2 class="border border-dark rounded p-2 mb-5" style="font-size:20px;">{{ Auth::user()->name }}さんのページ</h2>
     <div class="pl-3 mb-5 border-bottom border-dark">評論を書く</div>
         <h3 style="font-size:20px;" class="mb-3">「{{ $film->title }}」の評論の編集</h3>
