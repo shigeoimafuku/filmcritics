@@ -116,32 +116,38 @@ class CriticsController extends Controller
     public function update(Request $request, $id)
     {
         $critic = Critic::findOrFail($id);
-        $request->validate([
-            'edit'=>'required',
-            'shoot'=>'required',
-            'screenplay'=>'required',
-            'act'=>'required',
-            'art'=>'required',
-            'music'=>'required',
-            'theme'=>'required',
-            'casting'=>'required',
-            'title'=>'required|max:255',
-        ]);
+        if (\Auth::id()===$critic->user_id){
+            $request->validate([
+                'edit'=>'required',
+                'shoot'=>'required',
+                'screenplay'=>'required',
+                'act'=>'required',
+                'art'=>'required',
+                'music'=>'required',
+                'theme'=>'required',
+                'casting'=>'required',
+                'title'=>'required|max:255',
+            ]);
+            
+            $critic->update([
+                'edit'=>$request->edit,
+                'shoot'=>$request->shoot,
+                'screenplay'=>$request->screenplay,
+                'act'=>$request->act,
+                'art'=>$request->art,
+                'music'=>$request->music,
+                'theme'=>$request->theme,
+                'casting'=>$request->casting,
+                'title'=>$request->title,
+                'film_id'=>$request->filmid,
+            ]);
+            
+            return redirect('/critics/'.\Auth::id().'/mypage');
+        }
         
-        $critic->update([
-            'edit'=>$request->edit,
-            'shoot'=>$request->shoot,
-            'screenplay'=>$request->screenplay,
-            'act'=>$request->act,
-            'art'=>$request->art,
-            'music'=>$request->music,
-            'theme'=>$request->theme,
-            'casting'=>$request->casting,
-            'title'=>$request->title,
-            'film_id'=>$request->filmid,
-        ]);
-        
-        return redirect('/critics/'.\Auth::id().'/mypage');
+        else{
+            return redirect('/');
+        }
         
     }
     

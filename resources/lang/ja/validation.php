@@ -147,8 +147,8 @@ return [
     */
 
     'attributes' => [
-        'edit'=>'「編集」',
-        'shoot'=>'「撮影」',
+        'edit'=>'編集',
+        'shoot'=>'撮影',
         'screenplay'=>'脚本',
         'act'=>'演技',
         'art'=>'美術',
