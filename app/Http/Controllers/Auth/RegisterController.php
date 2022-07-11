@@ -31,7 +31,7 @@ class RegisterController extends Controller
      */
     public function redirectTo(){
         
-        return '/critics/'.\Auth::id().'/mypage';
+        return '/users/mypage';
     }
 
     /**

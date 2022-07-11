@@ -20,7 +20,7 @@
                         {!! link_to_route('logout.get','ログアウト',[],['style'=>'font-size:small']) !!}
                     </li>
                     <li class="list-group-item">
-                        {!! link_to_route('critics.mypage',Auth::user()->name.'さんのマイページ',['userid'=>Auth::user()->id],['style'=>'font-size:small']) !!}
+                        {!! link_to_route('users.mypage',Auth::user()->name.'さんのマイページ',[],['style'=>'font-size:small']) !!}
                     </li>
                     <li class="list-group-item">
                         {!! link_to_route('films.create','管理画面',[],['style'=>'font-size:small']) !!}
@@ -41,7 +41,7 @@
                         {!! link_to_route('logout.get','ログアウト',[],['style'=>'font-size:small']) !!}
                     </li>
                     <li class="list-group-item">
-                        {!! link_to_route('critics.mypage',Auth::user()->name.'さんのマイページ',['userid'=>Auth::user()->id],['style'=>'font-size:small']) !!}
+                        {!! link_to_route('users.mypage',Auth::user()->name.'さんのマイページ',[],['style'=>'font-size:small']) !!}
                     </li>
                 </ul>    
             @endif
@@ -110,7 +110,7 @@
                                @foreach($critics as $critic)
                               
                               <td style="font-size:13px">{{ $critic->film()->first()->title }}</td>
-                              <td style="font-size:13px">{!! link_to_route('critics.mypage',$critic->user()->first()->name,['userid'=>$critic->user()->first()->id]) !!}</td>
+                              <td style="font-size:13px">{!! link_to_route('users.userpage',$critic->user()->first()->name,['userid'=>$critic->user()->first()->id]) !!}</td>
                               <td style="font-size:13px">{!! link_to_route('critics.show',$critic->title ,['critic'=>$critic->id]) !!}</td>
                             </tr>
                            @endforeach

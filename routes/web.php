@@ -25,10 +25,11 @@ Route::post('login','Auth\LoginController@login')->name('login.post');
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 
 // ユーザ一覧表示
-Route::resource('users','UsersController',['only'=>['index','show']]);
+Route::resource('users','UsersController',['only'=>['index']]);
 
 //マイページ表示
-Route::get('critics/{userid}/mypage','CriticsController@mypage')->name('critics.mypage');
+Route::get('users/{userid}/userpage','UsersController@userpage')->name('users.userpage');
+Route::get('users/mypage','UsersController@mypage')->name('users.mypage');
 
 // 管理画面
 Route::resource('films','FilmsController');

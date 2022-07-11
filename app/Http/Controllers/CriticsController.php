@@ -50,31 +50,12 @@ class CriticsController extends Controller
             'film_id'=>$request->filmid,
         ]);
         
-        return redirect('/critics/'.\Auth::id().'/mypage');
-        
+        return redirect('/users/mypage');
         
         
     }
     
-    public function mypage(Request $request)
-    {
-        $data=[];
-        $id=$request->userid;
-        $user=User::findOrFail($id);
-        $critics=$user->critics()->orderBy('created_at', 'desc')->paginate(10);
-        
-       
-        $data=[
-                'user'=>$user,
-                'critics'=>$critics,
-                'request'=>$request,
-        ];
-        
-       
-        
-        return view('critics.mypage',$data);
-        }
-    
+   
     public function show($id)
     {
         $critic = Critic::findOrFail($id);
@@ -142,7 +123,7 @@ class CriticsController extends Controller
                 'film_id'=>$request->filmid,
             ]);
             
-            return redirect('/critics/'.\Auth::id().'/mypage');
+            return redirect('/users/mypage');
         }
         
         else{
@@ -158,7 +139,7 @@ class CriticsController extends Controller
         if (\Auth::id()===$critic->user_id){
             $critic->delete();
         }
-         return redirect('/critics/'.$critic->user_id.'/mypage');
+         return redirect('/users/mypage');
     }     
 }
 

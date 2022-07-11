@@ -2,7 +2,7 @@
 
 @section('content')
   @if (Auth::check())
-  <h2 class="border border-dark rounded p-2 mb-5" style="font-size:20px;">{!! link_to_route('critics.mypage',$critic -> user($critic -> user_id)->first()->name,['userid'=>$critic -> user($critic -> user_id)->first()->id]) !!}さんのページ</h2>
+  <h2 class="border border-dark rounded p-2 mb-5" style="font-size:20px;">{!! link_to_route('users.userpage',$critic -> user($critic -> user_id)->first()->name,['userid'=>$critic -> user($critic -> user_id)->first()->id]) !!}さんのページ</h2>
    <div class="pl-3 mb-5 border-bottom border-dark">「{{ $critic->film($critic->film_id)->first()->title }}」の評論</div>
         
         <nav>

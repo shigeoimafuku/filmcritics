@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     public function redirectTo(){
         
-        return '/critics/'.\Auth::id().'/mypage';
+        return '/users/mypage';
     }
     /**
      * Create a new controller instance.

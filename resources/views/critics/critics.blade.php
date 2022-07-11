@@ -17,7 +17,7 @@
                    @foreach($critics as $critic)
                   
                   <td style="font-size:13px">{{ $critic->film()->first()->title }}</td>
-                  <td style="font-size:13px">{!! link_to_route('critics.mypage',$critic->user()->first()->name,['userid'=>$critic->user()->first()->id]) !!}</td>
+                  <td style="font-size:13px">{!! link_to_route('users.userpage',$critic->user()->first()->name,['userid'=>$critic->user()->first()->id]) !!}</td>
                   <td style="font-size:13px">{!! link_to_route('critics.show',$critic->title ,['critic'=>$critic->id]) !!}</td>
                 </tr>
                @endforeach

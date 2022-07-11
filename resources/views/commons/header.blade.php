@@ -17,7 +17,7 @@
                             {!! link_to_route('logout.get','ログアウト',[],['class'=>'nav-link','style'=>'font-size:12px']) !!}
                           </li>
                           <li class="nav-item">
-                            {!! link_to_route('critics.mypage',Auth::user()->name,['userid'=>Auth::user()->id],['class'=>'nav-link','style'=>'font-size:12px']) !!}
+                            {!! link_to_route('users.mypage',Auth::user()->name,[],['class'=>'nav-link','style'=>'font-size:12px']) !!}
                           </li>
                         </ul>
                       </div>
