@@ -41,4 +41,5 @@
         @endif
  
   @endif
+  @include('comments.comments')
 @endsection    

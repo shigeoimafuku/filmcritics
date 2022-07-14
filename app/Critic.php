@@ -37,4 +37,9 @@ class Critic extends Model
                     ->first();
     }
     
+    public function comments()
+    {
+        $this->hasMany(Comment::class);
+    }
+    
 }
