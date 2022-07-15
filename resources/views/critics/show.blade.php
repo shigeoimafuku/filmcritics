@@ -20,14 +20,14 @@
         </nav>
             <div class="tab-content p-2 rounded border border-top-0" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">評論タイトル「{{ $critic->title }}」</div>
-              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">{{ $critic->shoot }}</div>
-              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">{{ $critic->edit }}</div>
-              <div class="tab-pane fade" id="nav-art" role="tabpanel" aria-labelledby="nav-art-tab">{{ $critic->art }}</div>
-              <div class="tab-pane fade" id="nav-act" role="tabpanel" aria-labelledby="nav-act-tab">{{ $critic->act }}</div>
-              <div class="tab-pane fade" id="nav-screenplay" role="tabpanel" aria-labelledby="nav-screenplay-tab">{{ $critic->screenplay }}</div>
-              <div class="tab-pane fade" id="nav-music" role="tabpanel" aria-labelledby="nav-music-tab">{{ $critic->music }}</div>
-              <div class="tab-pane fade" id="nav-casting" role="tabpanel" aria-labelledby="nav-casting-tab">{{ $critic->casting }}</div>
-              <div class="tab-pane fade" id="nav-theme" role="tabpanel" aria-labelledby="nav-theme-tab">{{ $critic->theme }}</div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="white-space: pre-line">{{ $critic->shoot }}</div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="white-space: pre-line">{{ $critic->edit }}</div>
+              <div class="tab-pane fade" id="nav-art" role="tabpanel" aria-labelledby="nav-art-tab" style="white-space: pre-line">{{ $critic->art }}</div>
+              <div class="tab-pane fade" id="nav-act" role="tabpanel" aria-labelledby="nav-act-tab" style="white-space: pre-line">{{ $critic->act }}</div>
+              <div class="tab-pane fade" id="nav-screenplay" role="tabpanel" aria-labelledby="nav-screenplay-tab" style="white-space: pre-line">{{ $critic->screenplay }}</div>
+              <div class="tab-pane fade" id="nav-music" role="tabpanel" aria-labelledby="nav-music-tab" style="white-space: pre-line">{{ $critic->music }}</div>
+              <div class="tab-pane fade" id="nav-casting" role="tabpanel" aria-labelledby="nav-casting-tab" style="white-space: pre-line">{{ $critic->casting }}</div>
+              <div class="tab-pane fade" id="nav-theme" role="tabpanel" aria-labelledby="nav-theme-tab" style="white-space: pre-line">{{ $critic->theme }}</div>
             </div>
         @if (Auth::user()->id == $critic -> user($critic -> user_id)->first()->id)        
           <div class="mt-3">

@@ -2,7 +2,7 @@
    @foreach($comments as $comment)
         
            <div class="border m-3 p-1">
-                {{ $comment->content }}<br><br>
+                <div style="white-space: pre-line">{{ $comment->content }}</div><br>
                 <span style="font-size:12px">{{ $comment->user($comment->user_id)->first()->name }}</span>
             </div>
        
