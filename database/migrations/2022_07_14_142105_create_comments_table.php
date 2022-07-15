@@ -21,8 +21,8 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
             
             //外部キー制約
-            $table->foreign('critic_id')->references('id')->on('critics');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('critic_id')->references('id')->on('critics')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
         });
     }
