@@ -8,13 +8,15 @@ class Comment extends Model
 {
     protected $fillable=['content','critic_id'];
     
-    function critic()
+    public function critic()
     {
         return $this->belongsTo(Critic::class);
     }
     
-    function comment_user()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
+    
+    
 }

@@ -40,6 +40,6 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::get('critics/{critic}','CriticsController@show')->name('critics.show');
     Route::get('critics/{filmid}/create', 'CriticsController@create')->name('critics.create');
-    Route::resource('comments','CommentsController',['only'=>['store','destroy']]);
+    Route::resource('comments','CommentsController',['only'=>['store','destroy','index']]);
     
 });    

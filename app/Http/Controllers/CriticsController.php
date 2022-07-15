@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Critic;
 use App\Film;
 use App\User;
+use App\Comment;
 
 class CriticsController extends Controller
 {
@@ -60,11 +61,17 @@ class CriticsController extends Controller
     {
         $critic = Critic::findOrFail($id);
         
+        $comments=$critic->comments()->orderBy('id','desc')->paginate(10);
         
-        return view('critics.show',[
+        
+        
+        
+            return view('critics.show',[
            'critic' => $critic, 
+           'comments' => $comments,
            
         ]);
+       
     }
     
     public function index()
