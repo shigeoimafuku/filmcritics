@@ -2,7 +2,8 @@
 
 @section('content')
 
-<h2 class="border border-dark rounded p-2 mb-5" style="font-size:20px;">{{ $user->name }}さんのページ</h2>
+<h2 class="border border-dark rounded p-2 mb-5 d-flex justify-content-between" style="font-size:20px;">
+    <div>{{ $user->name }}さんのページ</div> <div>@include('user_follow.follow_button')</div></h2>
     <div class="pl-3 mb-5 border-bottom border-dark">映画評論一覧</div>
     
          <table class="table">
@@ -25,6 +26,7 @@
                @endforeach
             </tbody>
         </table>
+       
         
        {{-- @if(count($critics)>0)
             @foreach($critics as $critic)

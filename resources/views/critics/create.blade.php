@@ -18,7 +18,7 @@
                     {!! Form::textarea('shoot',null,['class'=>'form-control','id'=>'exampleFormControlTextarea1','rows'=>'3']) !!}
                     
                   </div>
-                  <div style="white-space: pre-wrap"></div>
+                 
                   
                   <div class="form-group">
                     {!! Form::label('edit','編集',['for'=>'exampleFormControlTextarea1']) !!}

@@ -37,7 +37,12 @@ Route::resource('films','FilmsController');
 // 批評画面
 Route::resource('critics','CriticsController',['except' => ['create','show']]);
 Route::group(['middleware' => ['auth']], function () {
-    
+    Route::group(['prefix'=>'users/{id}'],function(){
+        Route::post('follow','UserFollowController@store')->name('user.follow');
+        Route::delete('unfollow','UserFollowController@destroy')->name('user.unfollow');
+        Route::get('followings','UserFollowController@followings')->name('users.followings');
+        Route::get('followers','UserFollowController@followers')->name('users.followers');
+    });
     Route::get('critics/{critic}','CriticsController@show')->name('critics.show');
     Route::get('critics/{filmid}/create', 'CriticsController@create')->name('critics.create');
     Route::resource('comments','CommentsController',['only'=>['store','destroy','index']]);
