@@ -44,7 +44,7 @@ class User extends Authenticatable
     
     public function loadRelationshipCounts()
     {
-        $this->loadcount('critics');
+        $this->loadcount('critics','followings','followers');
     }
     
     public function films()
@@ -99,5 +99,6 @@ class User extends Authenticatable
     {
         return $this->followings()->where('follow_id',$userId)->exists();
     }
+    
     
 }

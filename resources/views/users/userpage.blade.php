@@ -3,7 +3,11 @@
 @section('content')
 
 <h2 class="border border-dark rounded p-2 mb-5 d-flex justify-content-between" style="font-size:20px;">
-    <div>{{ $user->name }}さんのページ</div> <div>@include('user_follow.follow_button')</div></h2>
+    <div>{{ $user->name }}さんのページ</div>
+    <span style="font-size:15px">{!! link_to_route('users.followings',$user->followings_count,['id'=>$user->id]) !!}フォロー
+    {!! link_to_route('users.followers',$user->followers_count,['id'=>$user->id]) !!}フォロワー</span>
+    <div>@include('user_follow.follow_button')</div></h2>
+    
     <div class="pl-3 mb-5 border-bottom border-dark">映画評論一覧</div>
     
          <table class="table">

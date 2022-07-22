@@ -24,6 +24,7 @@ class UsersController extends Controller
         $date=[];
         $me=\Auth::user();
         $critics=$me->critics()->orderBy('updated_at','desc')->paginate(10);
+        $me->loadRelationshipCounts();
         
         $data=[
             'me'=>$me,
@@ -44,6 +45,7 @@ class UsersController extends Controller
         $id=$request->userid;
         $user=User::findOrFail($id);
         $critics=$user->critics()->orderBy('created_at', 'desc')->paginate(10);
+        $user->loadRelationshipCounts();
         
         $data=[
                 'user'=>$user,
@@ -55,6 +57,33 @@ class UsersController extends Controller
         }
     }
     
+    public function followings($id)
+    {
+        $user=User::findOrFail($id);
+        
+        $user->loadRelationshipCounts();
+        
+        $followings=$user->followings()->paginate(10);
+        
+        return view('users.followings',[
+            'user'=>$user,
+            'followings'=>$followings,
+        ]);
+        
+    }
     
+    public function followers($id)
+    {
+        $user=User::findOrFail($id);
+        
+        $user->loadRelationshipCounts();
+        
+        $followers=$user->followers()->paginate(10);
+        
+        return view('users.followers',[
+            'user'=>$user,
+            'followers'=>$followers,
+        ]);
+    }
     
 }
