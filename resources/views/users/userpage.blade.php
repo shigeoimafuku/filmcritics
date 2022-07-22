@@ -28,15 +28,10 @@
                   {{-- <td style="font-size:13px">{!! link_to_route('critics.show',$critic->title ,['critic'=>$critic->id]) !!}</td> --}}
                 </tr>
                @endforeach
+               
             </tbody>
         </table>
-       
+       {{ $critics->links() }}
         
-       {{-- @if(count($critics)>0)
-            @foreach($critics as $critic)
-                <ul class="list-group">
-                  <li class="list-group-item">{!! link_to_route('critics.show',$critic->film()->first()->title ,['critic'=>$critic->id]) !!}　　<span style="font-size:13px">〜評論文のタイトル「{{ $critic->title }}」〜</span></li>
-                </ul>
-            @endforeach
-        @endif --}}
+       
 @endsection      

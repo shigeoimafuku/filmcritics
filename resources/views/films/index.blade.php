@@ -43,5 +43,5 @@
       @endforeach
  @endif
 </table>
-
+{{ $films->links() }}
 @endsection

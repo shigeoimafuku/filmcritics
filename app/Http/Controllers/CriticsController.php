@@ -76,7 +76,7 @@ class CriticsController extends Controller
     
     public function index()
     {
-        $critics=Critic::all();
+        $critics=Critic::paginate(10);
         
         
         return view('critics.index',[

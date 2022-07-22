@@ -25,7 +25,8 @@
                  
                 </tr>
                @endforeach
+               
             </tbody>
         </table>
-        
+        {{ $critics->links() }}
 @endsection      

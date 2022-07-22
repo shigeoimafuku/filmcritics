@@ -25,7 +25,7 @@
                @endforeach
             </tbody>
         </table>
-    
+        {{ $followers->links() }}
 
 
 @endif

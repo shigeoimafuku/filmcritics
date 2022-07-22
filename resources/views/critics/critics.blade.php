@@ -23,7 +23,7 @@
                @endforeach
             </tbody>
         </table>
-             
+        {{ $critics->links() }}
                    
                
         

@@ -114,8 +114,10 @@
                               <td style="font-size:13px">{!! link_to_route('critics.show',$critic->title ,['critic'=>$critic->id]) !!}</td>
                             </tr>
                            @endforeach
+                           
                         </tbody>
                     </table>
+                    {{ $critics->links() }}
             </div>
         </div>
     </div>    
