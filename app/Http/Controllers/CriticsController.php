@@ -25,6 +25,7 @@ class CriticsController extends Controller
     
     public function store(Request $request)
     {
+        
         $request->validate([
             'edit'=>'required',
             'shoot'=>'required',

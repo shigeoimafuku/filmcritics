@@ -16,8 +16,8 @@
                  <div class="form-group">
                     {!! Form::label('shoot','撮影',['for'=>'exampleFormControlTextarea1']) !!}
                     {!! Form::textarea('shoot',null,['class'=>'form-control','id'=>'exampleFormControlTextarea1','rows'=>'3']) !!}
+                 </div>
                     
-                  </div>
                  
                   
                   <div class="form-group">

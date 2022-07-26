@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="d-none d-sm-block col-3 border">
+        <div class="d-none d-sm-block col-3">
         @if(Auth::check())
            
             @if (Auth::user()->admin==1) 
@@ -66,7 +66,7 @@
         @endif    
         </div>
         
-        <div class="col-sm-9 border">
+        <div class="col-sm-9">
             <div class="border">
                 <h3 class="p-3" style="font-size:20px">映画評論家's Roomへようこそ</h3>
                 <section class="p-3">
